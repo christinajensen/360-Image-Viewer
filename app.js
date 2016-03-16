@@ -28,15 +28,24 @@ var light = new THREE.AmbientLight(0xffffff);
 scene.add(light);
 
 // create sphere
-var geometry = new THREE.SphereGeometry(100, 32, 32);
-var material = new THREE.MeshPhongMaterial({ map: THREE.ImageUtils.loadTexture('360-nature.jpg') });
-var sphere = new THREE.Mesh(geometry, material);
+var sphereGeometry = new THREE.SphereGeometry(100, 32, 32);
+var sphereMaterial = new THREE.MeshPhongMaterial({ map: THREE.ImageUtils.loadTexture('360-nature.jpg') });
+var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
 // inverte sphere to 'look inside'
 sphere.scale.x = -1;
 
 // add sphere to the scene
 scene.add(sphere);
+
+// create plane and add it to the scene
+var planeGeometry = new THREE.PlaneGeometry(4, 4);
+var planeMaterial = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('preikestolen.jpg'), side: THREE.DoubleSide, transparent: true, opacity: 0.7} );
+var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+plane.position.x = 5;
+plane.position.y = -5;
+plane.position.z = -15;
+scene.add(plane);
 
 // render
 var render = function(){
