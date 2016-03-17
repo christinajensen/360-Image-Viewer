@@ -47,8 +47,53 @@ plane.position.y = -5;
 plane.position.z = -15;
 scene.add(plane);
 
+// add gaze interaction
+Reticulum.init(camera, {
+  proximity: false,
+  clickevents: true,
+  near: null, //near factor of the raycaster (shouldn't be negative and should be smaller than the far property)
+  far: null, //far factor of the raycaster (shouldn't be negative and should be larger than the near property)
+  reticle: {
+    visible: true,
+    restPoint: 1000, //Defines the reticle's resting point when no object has been targeted
+    color: 0xcc0000,
+    innerRadius: 0,
+    outerRadius: 0.01,
+    hover: {
+      color: 0xcc0000,
+      innerRadius: 0.02,
+      outerRadius: 0.024,
+      speed: 5,
+      vibrate: 50 //Set to 0 or [] to disable
+    }
+  },
+  fuse: {
+    visible: true,
+    duration: 2.5,
+    color: 0x00fff6,
+    innerRadius: 0.045,
+    outerRadius: 0.06,
+    vibrate: 100, //Set to 0 or [] to disable
+    clickCancelFuse: false //If users clicks on targeted object fuse is canceled
+  }
+});
+
+Reticulum.add(plane, {
+  clickCancelFuse: true, // Overrides global setting for fuse's clickCancelFuse
+  reticleHoverColor: 0x00fff6, // Overrides global reticle hover color
+  fuseVisible: true, // Overrides global fuse visibility
+  fuseDuration: 1.5, // Overrides global fuse duration
+  fuseColor: 0xcc0000, // Overrides global fuse color
+  onGazeLong: function(){
+      sphere.material.map = THREE.ImageUtils.loadTexture('preikestolen.jpg');
+  }
+});
+
+scene.add(camera);
+
 // render
 var render = function(){
+  Reticulum.update();
   controls.update();
   requestAnimationFrame(render);
   manager.render(scene, camera);
