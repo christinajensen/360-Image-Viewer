@@ -29,7 +29,7 @@ scene.add(light);
 
 // create sphere
 var sphereGeometry = new THREE.SphereGeometry(1000, 32, 32);
-var sphereMaterial = new THREE.MeshPhongMaterial({ map: THREE.ImageUtils.loadTexture('360-nature.jpg') });
+var sphereMaterial = new THREE.MeshPhongMaterial({ map: THREE.ImageUtils.loadTexture('IMG_0935.jpg') });
 var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
 // inverte sphere to 'look inside'
@@ -48,7 +48,7 @@ scene.add(sphere);
 // scene.add(bgPlane);
 
 var plane1Geometry = new THREE.PlaneGeometry(3, 3);
-var plane1Material = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('preikestolen.jpg'), side: THREE.DoubleSide} );
+var plane1Material = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('IMG_0487.jpg'), side: THREE.DoubleSide} );
 var plane1 = new THREE.Mesh(plane1Geometry, plane1Material);
 plane1.position.x = -10;
 plane1.position.y = 8;
@@ -57,7 +57,7 @@ scene.add(plane1);
 
 // create more planes..
 var plane2Geometry = new THREE.PlaneGeometry(3, 3);
-var plane2Material = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('360-nature.jpg'), side: THREE.DoubleSide, transparent: true, opacity: 0.7} );
+var plane2Material = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('IMG_1224.jpg'), side: THREE.DoubleSide, transparent: true, opacity: 0.7} );
 var plane2 = new THREE.Mesh(plane2Geometry, plane2Material);
 plane2.position.x = -5;
 plane2.position.y = 8;
@@ -65,7 +65,7 @@ plane2.position.z = -20;
 scene.add(plane2);
 
 var plane3Geometry = new THREE.PlaneGeometry(3, 3);
-var plane3Material = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('bergsjostolen.jpg'), side: THREE.DoubleSide, transparent: true, opacity: 0.7} );
+var plane3Material = new THREE.MeshBasicMaterial( {map: THREE.ImageUtils.loadTexture('IMG_0935.jpg'), side: THREE.DoubleSide, transparent: true, opacity: 0.7} );
 var plane3 = new THREE.Mesh(plane3Geometry, plane3Material);
 plane3.position.x = 0;
 plane3.position.y = 8;
@@ -110,7 +110,7 @@ Reticulum.add(plane1, {
   fuseDuration: 1.5, // Overrides global fuse duration
   fuseColor: 0xcc0000, // Overrides global fuse color
   onGazeLong: function(){
-      sphere.material.map = THREE.ImageUtils.loadTexture('preikestolen.jpg');
+      sphere.material.map = THREE.ImageUtils.loadTexture('IMG_0487.jpg');
   }
 });
 
@@ -122,7 +122,7 @@ Reticulum.add(plane2, {
   fuseDuration: 1.5, // Overrides global fuse duration
   fuseColor: 0xcc0000, // Overrides global fuse color
   onGazeLong: function(){
-      sphere.material.map = THREE.ImageUtils.loadTexture('360-nature.jpg');
+      sphere.material.map = THREE.ImageUtils.loadTexture('IMG_1224.jpg');
   }
 });
 
@@ -133,7 +133,7 @@ Reticulum.add(plane3, {
   fuseDuration: 1.5, // Overrides global fuse duration
   fuseColor: 0xcc0000, // Overrides global fuse color
   onGazeLong: function(){
-      sphere.material.map = THREE.ImageUtils.loadTexture('bergsjostolen.jpg');
+      sphere.material.map = THREE.ImageUtils.loadTexture('IMG_0935.jpg');
   }
 });
 
